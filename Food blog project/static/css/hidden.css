@@ -1,0 +1,15 @@
+.hidden{
+	height:800px;
+	margin:0 auto;
+	overflow:hidden;
+	padding-top:60px;
+}
+.hidden_1 {
+    background: url('../img/1-2scrool.jpg')no-repeat center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    padding: 70em 0;
+}

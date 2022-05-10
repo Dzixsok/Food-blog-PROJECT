@@ -1,0 +1,43 @@
+.cook{
+    width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+    margin-top: 10px;
+    /*border: 1px solid red;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.cook_left{
+    width: 450px;
+    height: 600px;
+    /* display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*align-items: center;*/
+}
+
+.cook_left img{
+    width: 100%;
+    height: 400px;
+}
+
+.cook_right{
+    width: 650px;
+    height: 600px;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*border: 1px solid black;*/
+}
+
+ a{ text-decoration:none}
+
+ .cook_right strong{
+            display: block;
+            width: 140px;
+            height: 36px;
+            /*margin-top: 30px;*/
+            line-height: 36px;
+            color: white;
+            text-align: center;
+            background-color: rgb(172,145,90);  /*背景颜色*/
+        }

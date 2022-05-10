@@ -1,0 +1,14 @@
+.copyw3-agile{
+		    text-align: center;
+		    padding: 2em 0;
+		    background:rgb(230,74,25) ;
+		}
+		.copyw3-agile p {
+		    font-size: 1em;
+		    color: black;
+		    font-weight: 300;
+			line-height:1.8em;
+		}
+		.copyw3-agile p a{
+		    color: rgb(230,74,25);
+		}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body,
+    h3 {
+        margin: 0;
+        padding: 0;
+
+        overflow: hidden;
+    }
+
+    #box {
+        display: flex;
+        display: -webkit-flex;
+        height: 50vh;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .item {
+        width: 660px;
+        height: 430px;
+        background-color: #ecffde;
+        transition: .5s ease;
+        border-radius: 8px;
+        padding: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .item .login-box {
+        margin-top: 50px;
+    }
+
+    .item .title p {
+        color: #333;
+
+    }
+
+    .item h3 {
+        color: white;
+        text-align: center;
+        height: 60px;
+        line-height: 60px;
+        letter-spacing: 5px;
+        background-color: rgb(255, 87, 34);
+        border-radius: 8px;
+    }
+
+    .username,
+    .password {
+        height: 30px;
+        width: 265px;
+        margin: 20px auto;
+        color: #333;
+    }
+
+    .item .text,
+    .item .pwd {
+        display: inline-block;
+        height: 35px;
+        width: 200px;
+        border: none;
+        padding-left: 10px;
+        border-radius: 4px;
+
+    }
+
+    #warning {
+        opacity: 0;
+        text-align: center;
+        color: red;
+        font-size: 14px;
+    }
+</style>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">菜谱</a>
+        </div>
+        <div id="example-navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">首页</a></li>
+                <li><a href="/usermanger">管理</a></li>
+                <li><a href="/insert">发布</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if session.get('logined') %}
+                    <li><a href="/changepassword">用户：{{ user }} 修改密码</a></li>
+                    <li><a href="/logout">注销</a></li>
+                {% else %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            登录/注册<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/login">登录</a></li>
+                            <li class="divider"></li>
+                            <li class="active"><a href="/register">注册</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+<div id='box'>
+    <div class='item'>
+        <h1>注册菜谱</h1>
+
+        <div class='login-box'>
+            <form action="/register" method="post">
+                <div class="username">
+                    <label>姓&nbsp;名:</label>
+                    <input type="text" name="username" onfocus="tips()" class="text" value placeholder='请输入姓名'>
+                    <span id="txt"></span>
+                </div>
+                <div class="password">
+                    <label>密&nbsp;码:</label>
+                    <input type="password" name="password" onfocus="tips()" class="pwd" value placeholder='请输入密码'>
+                    <span id='txt'></span>
+                </div>
+                <div class="title">
+                    {% if success %}
+                        <p class="text-success">{{ info }}</p>
+                    {% else %}
+                        <p class="text-danger">{{ info }}</p>
+                    {% endif %}
+                </div>
+                <div class="login">
+                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="注册">
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* 滚动栏的具体布局 */
+
+.background{
+	height: 600px;
+	background-repeat: no-repeat;
+	background-image: url("../img/t2.jpg");
+	animation: frams 20s infinite;
+        }
+@keyframes frams {
+	0%{
+		background-image: url("../img/t2.jpg");
+		background-size : 100% 100%;
+		background-repeat: no-repeat;
+	}
+	33%{
+		background-image: url("../img/G1.jpg");
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+	66%{
+		background-image: url("../img/D2.jpg");
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+	100%{
+		background-image: url("../img/D1.jpg");
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+
+}

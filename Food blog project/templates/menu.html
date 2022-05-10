@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>主食</title>
+		<!-- Bootstrap core CSS -->
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<meta name="referrer" content="no-referrer">
+	</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+					                data-target="#example-navbar-collapse">
+					            <span class="sr-only">切换导航</span>
+					            <span class="icon-bar"></span>
+					            <span class="icon-bar"></span>
+					            <span class="icon-bar"></span>
+					        </button>
+					<a class="navbar-brand" href="#">菜谱</a>
+				</div>
+				<div id="example-navbar-collapse" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/">首页</a></li>
+                        <li><a href="/usermanger">管理</a></li>
+						<li><a href="/insert">发布</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						{% if session.get('logined') %}
+                            <li><a href="/changepassword">用户：{{ user }} 修改密码</a> </li>
+						<li><a href="/logout">注销</a></li>
+						{% else %}
+						<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                登录/注册<b class="caret"></b>
+                            </a>
+							<ul class="dropdown-menu">
+								<li><a href="/login">登录</a></li>
+                                <li class="divider"></li>
+								<li><a href="/register">注册</a></li>
+							</ul>
+						</li>
+						{% endif %}
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="part">
+				<h1 class="product">
+					<h1> 美食
+						<b>推荐</b>
+					</h1>
+			</div>
+			<div class="items">
+				<div class="cp-list min-width ">
+					<ul>
+                        <div class="row">
+                            {% for i in x1 %}
+                            <div class="col-xs-6 col-lg-3">
+                                <div class="cp-img">
+                                    <a href="/recipe/{{ i['_id'] }}">
+                                        <img src={{ i['图片链接'] }} class="img-thumbnail" alt="Cinque Terre"height="236">
+                                    </a>
+                                </div>
+                                <h4 class="text-center">{{ i['标题'] }}</h4>
+                                <p>用户：{{ i['用户'] }}</p>
+                                <p class="text-center">
+                                <a href="/recipe/{{ i['_id'] }}" type="button" class="btn btn-info btn-lg">
+                                    <strong>了解更多</strong></a></p>
+                            </div>
+                            {% endfor %}
+                        </div>
+					</ul>
+				</div>
+			</div>
+
+
+		</div>
+        <footer class="footer">
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li><a href="/menu/{{ pp }}">&laquo;</a></li>
+                        {% for fy in pg %}
+                            {% if fy==pi %}
+                            <li class="active"><a href="/menu/{{ fy }}">{{ fy }}</a></li>
+                            {% else: %}
+                            <li><a href="/menu/{{ fy }}">{{ fy }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        <li><a href="/menu/{{ pn }}">&raquo;</a></li>
+                    </ul>
+                </div>
+            </footer>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+.show_product{
+    width: 1200px;
+    /*height: 550px;*/
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.show{
+    width: 1200px;
+    /*height: 550px;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+
+
+}
+
+.show_1{
+    width: 255px;
+    height: 255px;
+    padding-top: 25px;
+}
+
+.show_1 img{
+    width: 255px;
+    height: 255px;
+}
+
+
